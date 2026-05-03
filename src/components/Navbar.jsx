@@ -12,58 +12,38 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/">
-              <Image
-                src="/logo.png"
-                alt="Besok Kerja"
-                width={140}
-                height={40}
-                className="object-contain"
-              />
-            </Link>
-          </div>
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Besok Kerja"
+              width={140}
+              height={40}
+              className="object-contain"
+            />
+          </Link>
 
           {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
-              Beranda
-            </Link>
-            <Link href="/#fitur" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
-              Fitur
-            </Link>
-            <Link href="/simulasi-interview" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
-              Simulasi Interview
-            </Link>
-            <Link href="/rekomendasi-skill" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
-              Pengembangan Skill
-            </Link>
-            <Link href="/#harga" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
-              Harga
-            </Link>
-            <Link href="/#tentang" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
-              Tentang Kami
-            </Link>
+            <Link href="/" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Beranda</Link>
+            <Link href="/#fitur" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Fitur</Link>
+            <Link href="/simulasi-interview" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Simulasi Interview</Link>
+            <Link href="/rekomendasi-skill" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Pengembangan Skill</Link>
+            <Link href="/#harga" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Harga</Link>
+            <Link href="/#tentang" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</Link>
           </div>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/login"
-              className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors px-4 py-2">
+            <Link href="/login" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors px-4 py-2">
               Masuk
             </Link>
-            <Link
-              href="/register"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
+            <Link href="/register" className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
               Daftar Gratis
             </Link>
           </div>
 
-          {/* Hamburger Mobile */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}>
+          {/* Hamburger */}
+          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -82,12 +62,8 @@ export default function Navbar() {
               <Link href="/#harga" className="text-gray-600 text-sm font-medium">Harga</Link>
               <Link href="/#tentang" className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
               <div className="flex gap-3 pt-2">
-                <Link href="/login" className="text-gray-600 text-sm font-medium px-4 py-2">
-                  Masuk
-                </Link>
-                <Link href="/register" className="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg">
-                  Daftar Gratis
-                </Link>
+                <Link href="/login" className="text-gray-600 text-sm font-medium px-4 py-2">Masuk</Link>
+                <Link href="/register" className="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg">Daftar Gratis</Link>
               </div>
             </div>
           </div>
