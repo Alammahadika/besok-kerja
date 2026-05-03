@@ -82,7 +82,9 @@ export default function Navbar() {
               <Link href="/#harga" className="text-gray-600 text-sm font-medium">Harga</Link>
               <Link href="/#tentang" className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
               <div className="flex gap-3 pt-2">
-                <Link href="/login" className="text-gray-600 text-sm font-medium">Masuk</Link>
+                <Link href="/login" className="text-gray-600 text-sm font-medium px-4 py-2">
+                  Masuk
+                </Link>
                 <Link href="/register" className="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg">
                   Daftar Gratis
                 </Link>
