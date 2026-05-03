@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,33 +13,57 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Besok Kerja"
-              width={140}
-              height={40}
-              className="object-contain"
-            />
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Besok Kerja"
+                width={140}
+                height={40}
+                className="object-contain"
+              />
+            </Link>
           </div>
 
           {/* Menu Desktop */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Beranda</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Fitur</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Simulasi Interview</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Pengembangan Skill</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Harga</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</a>
+            <Link href="/" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
+              Beranda
+            </Link>
+            <Link href="/#fitur" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
+              Fitur
+            </Link>
+            <Link href="/simulasi-interview" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
+              Simulasi Interview
+            </Link>
+            <Link href="/rekomendasi-skill" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
+              Pengembangan Skill
+            </Link>
+            <Link href="/#harga" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
+              Harga
+            </Link>
+            <Link href="/#tentang" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">
+              Tentang Kami
+            </Link>
           </div>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <button className="text-gray-600 hover:text-indigo-600 text-sm font-medium px-4 py-2">Masuk</button>
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">Daftar Gratis</button>
+            <Link
+              href="/login"
+              className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors px-4 py-2">
+              Masuk
+            </Link>
+            <Link
+              href="/register"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
+              Daftar Gratis
+            </Link>
           </div>
 
-          {/* Hamburger */}
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
+          {/* Hamburger Mobile */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -50,15 +75,17 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col gap-4">
-              <a href="#" className="text-gray-600 text-sm">Beranda</a>
-              <a href="#" className="text-gray-600 text-sm">Fitur</a>
-              <a href="#" className="text-gray-600 text-sm">Simulasi Interview</a>
-              <a href="#" className="text-gray-600 text-sm">Pengembangan Skill</a>
-              <a href="#" className="text-gray-600 text-sm">Harga</a>
-              <a href="#" className="text-gray-600 text-sm">Tentang Kami</a>
+              <Link href="/" className="text-gray-600 text-sm font-medium">Beranda</Link>
+              <Link href="/#fitur" className="text-gray-600 text-sm font-medium">Fitur</Link>
+              <Link href="/simulasi-interview" className="text-gray-600 text-sm font-medium">Simulasi Interview</Link>
+              <Link href="/rekomendasi-skill" className="text-gray-600 text-sm font-medium">Pengembangan Skill</Link>
+              <Link href="/#harga" className="text-gray-600 text-sm font-medium">Harga</Link>
+              <Link href="/#tentang" className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
               <div className="flex gap-3 pt-2">
-                <button className="text-gray-600 text-sm">Masuk</button>
-                <button className="bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg">Daftar Gratis</button>
+                <Link href="/login" className="text-gray-600 text-sm font-medium">Masuk</Link>
+                <Link href="/register" className="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg">
+                  Daftar Gratis
+                </Link>
               </div>
             </div>
           </div>

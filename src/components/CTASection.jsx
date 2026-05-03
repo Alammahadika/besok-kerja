@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function CTASection() {
   return (
     <section className="py-16">
@@ -12,9 +14,11 @@ export default function CTASection() {
               dan jadi kandidat yang dicari perusahaan.
             </p>
           </div>
-          <button className="bg-white text-indigo-600 font-bold px-8 py-3.5 rounded-xl whitespace-nowrap hover:bg-indigo-50 transition-colors">
+          <Link
+            href="/register"
+            className="bg-white text-indigo-600 font-bold px-8 py-3.5 rounded-xl whitespace-nowrap hover:bg-indigo-50 transition-colors">
             Daftar Gratis Sekarang →
-          </button>
+          </Link>
         </div>
       </div>
     </section>
