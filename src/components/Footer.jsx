@@ -1,69 +1,111 @@
-'use client'
-import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-
+export default function Footer() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <footer className="bg-gray-900 text-gray-400 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
 
-          {/* Logo */}
-          <div className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Besok Kerja"
-              width={140}
-              height={40}
-              className="object-contain"
-            />
-          </div>
-
-          {/* Menu Desktop */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Beranda</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Fitur</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Simulasi Interview</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Pengembangan Skill</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Harga</a>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</a>
-          </div>
-
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <button className="text-gray-600 hover:text-indigo-600 text-sm font-medium px-4 py-2">Masuk</button>
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">Daftar Gratis</button>
-          </div>
-
-          {/* Hamburger */}
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col gap-4">
-              <a href="#" className="text-gray-600 text-sm">Beranda</a>
-              <a href="#" className="text-gray-600 text-sm">Fitur</a>
-              <a href="#" className="text-gray-600 text-sm">Simulasi Interview</a>
-              <a href="#" className="text-gray-600 text-sm">Pengembangan Skill</a>
-              <a href="#" className="text-gray-600 text-sm">Harga</a>
-              <a href="#" className="text-gray-600 text-sm">Tentang Kami</a>
-              <div className="flex gap-3 pt-2">
-                <button className="text-gray-600 text-sm">Masuk</button>
-                <button className="bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg">Daftar Gratis</button>
-              </div>
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <div className="mb-4">
+              <Image
+                src="/logo.png"
+                alt="Besok Kerja"
+                width={130}
+                height={35}
+                className="object-contain brightness-0 invert"
+              />
+            </div>
+            <p className="text-sm leading-relaxed mb-4">
+              Platform persiapan karier dengan AI seperti HR beneran.
+            </p>
+            <div className="flex gap-3">
+              {['📷', '💼', '▶️'].map((icon, i) => (
+                <button key={i} className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-sm hover:bg-gray-700 transition-colors">
+                  {icon}
+                </button>
+              ))}
             </div>
           </div>
-        )}
+
+          {/* Platform */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm">Platform</h4>
+            {[
+              { label: 'Fitur', href: '/#fitur' },
+              { label: 'Simulasi Interview', href: '/simulasi-interview' },
+              { label: 'Pengembangan Skill', href: '/rekomendasi-skill' },
+              { label: 'Harga', href: '/#harga' },
+            ].map((item, i) => (
+              <Link key={i} href={item.href} className="block text-sm hover:text-white mb-2 transition-colors">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Bantuan */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm">Bantuan</h4>
+            {[
+              { label: 'Pusat Bantuan', href: '#' },
+              { label: 'Panduan Pengguna', href: '#' },
+              { label: 'Kebijakan Privasi', href: '#' },
+              { label: 'Syarat & Ketentuan', href: '#' },
+            ].map((item, i) => (
+              <Link key={i} href={item.href} className="block text-sm hover:text-white mb-2 transition-colors">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Perusahaan */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm">Perusahaan</h4>
+            {[
+              { label: 'Tentang Kami', href: '/#tentang' },
+              { label: 'Karier', href: '#' },
+              { label: 'Kontak Kami', href: '#' },
+            ].map((item, i) => (
+              <Link key={i} href={item.href} className="block text-sm hover:text-white mb-2 transition-colors">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm">Akun</h4>
+            <div className="flex flex-col gap-2 mb-6">
+              <Link
+                href="/login"
+                className="text-sm text-gray-400 hover:text-white transition-colors">
+                Masuk
+              </Link>
+              <Link
+                href="/register"
+                className="text-sm text-gray-400 hover:text-white transition-colors">
+                Daftar Gratis
+              </Link>
+            </div>
+            <h4 className="text-white font-semibold mb-2 text-sm">Newsletter</h4>
+            <p className="text-xs mb-3">Tips karier terbaru untuk kamu.</p>
+            <div className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Masukkan email kamu"
+                className="flex-1 bg-gray-800 text-white text-xs px-3 py-2.5 rounded-lg border border-gray-700 focus:outline-none focus:border-indigo-500"
+              />
+              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2.5 rounded-lg transition-colors">→</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 pt-6 text-center">
+          <p className="text-xs">© 2024 Besok Kerja. All rights reserved.</p>
+        </div>
       </div>
-    </nav>
+    </footer>
   )
 }
