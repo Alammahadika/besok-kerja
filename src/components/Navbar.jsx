@@ -32,18 +32,24 @@ export default function Navbar() {
             <Link href="/#tentang" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</Link>
           </div>
 
-          {/* Auth Buttons */}
+          {/* Auth Buttons Desktop */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/login" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors px-4 py-2">
+            <Link
+              href="/login"
+              className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors px-4 py-2">
               Masuk
             </Link>
-            <Link href="/register" className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
+            <Link
+              href="/register"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
               Daftar Gratis
             </Link>
           </div>
 
           {/* Hamburger */}
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -55,15 +61,27 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col gap-4">
-              <Link href="/" className="text-gray-600 text-sm font-medium">Beranda</Link>
-              <Link href="/#fitur" className="text-gray-600 text-sm font-medium">Fitur</Link>
-              <Link href="/simulasi-interview" className="text-gray-600 text-sm font-medium">Simulasi Interview</Link>
-              <Link href="/rekomendasi-skill" className="text-gray-600 text-sm font-medium">Pengembangan Skill</Link>
-              <Link href="/#harga" className="text-gray-600 text-sm font-medium">Harga</Link>
-              <Link href="/#tentang" className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
-              <div className="flex gap-3 pt-2">
-                <Link href="/login" className="text-gray-600 text-sm font-medium px-4 py-2">Masuk</Link>
-                <Link href="/register" className="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-lg">Daftar Gratis</Link>
+              <Link href="/" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Beranda</Link>
+              <Link href="/#fitur" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Fitur</Link>
+              <Link href="/simulasi-interview" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Simulasi Interview</Link>
+              <Link href="/rekomendasi-skill" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Pengembangan Skill</Link>
+              <Link href="/#harga" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Harga</Link>
+              <Link href="/#tentang" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
+
+              {/* Auth Buttons Mobile */}
+              <div className="flex gap-3 pt-2 border-t border-gray-100">
+                <Link
+                  href="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 text-center text-gray-600 hover:text-indigo-600 text-sm font-medium px-4 py-2 border border-gray-200 rounded-lg transition-colors">
+                  Masuk
+                </Link>
+                <Link
+                  href="/register"
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                  Daftar Gratis
+                </Link>
               </div>
             </div>
           </div>
