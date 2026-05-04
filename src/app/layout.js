@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Besok Kerja - Platform HR Terlengkap di Indonesia',
   description: 'Platform yang membantu kamu mempersiapkan diri, melamar dengan lebih tepat, dan meningkatkan peluang diterima kerja impianmu.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/favicon.png',
   },
 }
 

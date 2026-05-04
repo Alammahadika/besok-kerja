@@ -45,39 +45,53 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen relative flex items-center justify-center">
 
-      {/* LEFT - Form */}
-      <div className="flex-1 flex items-center justify-center px-8 py-12">
-        <div className="w-full max-w-md">
+      {/* Background Full Screen */}
+<div className="absolute inset-0 z-0">
+  <Image
+    src="/auth-bannerku.png"
+    alt="Background"
+    fill
+    className="object-cover object-center scale-100"
+    priority
+    style={{ objectFit: 'cover', objectPosition: 'center' }}
+  />
+  {/* Overlay agar teks terbaca */}
+  <div className="absolute inset-0 bg-black/30" />
+</div>
+
+      {/* Form Card Transparan di Tengah */}
+      <div className="relative z-10 w-full max-w-md mx-4">
+        <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-3xl p-8 shadow-2xl">
 
           {/* Logo */}
-          <div className="mb-8">
-            <Link href="/">
+          <div className="mb-6 flex justify-center">
+            <div className="bg-white/90 rounded-2xl px-4 py-2">
               <Image
-                src="/logo.png"
+                src="/logo1.png"
                 alt="Besok Kerja"
-                width={140}
-                height={40}
+                width={130}
+                height={36}
                 className="object-contain"
               />
-            </Link>
+            </div>
           </div>
 
           {/* Heading */}
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-white mb-1 text-center">
             Masuk ke Akun Kamu
           </h1>
-          <p className="text-gray-500 text-sm mb-8">
+          <p className="text-white/70 text-sm mb-6 text-center">
             Belum punya akun?{' '}
-            <Link href="/register" className="text-indigo-600 font-medium hover:underline">
+            <Link href="/register" className="text-white font-semibold hover:underline">
               Daftar Gratis
             </Link>
           </p>
 
           {/* Error */}
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-3 rounded-xl mb-4">
+            <div className="bg-red-500/20 border border-red-400/50 text-red-100 text-sm px-4 py-3 rounded-xl mb-4">
               {error}
             </div>
           )}
@@ -85,8 +99,7 @@ export default function LoginPage() {
           {/* Google Login */}
           <button
             onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-xl py-3 px-4 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors mb-6 bg-white shadow-sm">
-            {/* Google Icon SVG */}
+            className="w-full flex items-center justify-center gap-3 bg-white/90 hover:bg-white border border-white/50 rounded-xl py-3 px-4 text-sm font-medium text-gray-700 transition-colors mb-5 shadow-sm">
             <svg width="20" height="20" viewBox="0 0 48 48">
               <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
               <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
@@ -98,10 +111,10 @@ export default function LoginPage() {
           </button>
 
           {/* Divider */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="flex-1 h-px bg-gray-200" />
-            <span className="text-xs text-gray-400">atau masuk dengan email</span>
-            <div className="flex-1 h-px bg-gray-200" />
+          <div className="flex items-center gap-4 mb-5">
+            <div className="flex-1 h-px bg-white/30" />
+            <span className="text-xs text-white/60">atau masuk dengan email</span>
+            <div className="flex-1 h-px bg-white/30" />
           </div>
 
           {/* Form */}
@@ -109,15 +122,13 @@ export default function LoginPage() {
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                Email
-              </label>
+              <label className="block text-sm font-medium text-white mb-1.5">Email</label>
               <input
                 type="email"
                 placeholder="contoh@email.com"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-sm text-white placeholder-white/50 focus:outline-none focus:border-white/70 focus:bg-white/30 transition-colors"
                 required
               />
             </div>
@@ -125,10 +136,8 @@ export default function LoginPage() {
             {/* Password */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="block text-sm font-medium text-gray-700">
-                  Password
-                </label>
-                <Link href="/lupa-password" className="text-xs text-indigo-600 hover:underline">
+                <label className="block text-sm font-medium text-white">Password</label>
+                <Link href="/lupa-password" className="text-xs text-white/70 hover:text-white hover:underline">
                   Lupa password?
                 </Link>
               </div>
@@ -138,14 +147,24 @@ export default function LoginPage() {
                   placeholder="Masukkan password"
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 pr-12"
+                  className="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-sm text-white placeholder-white/50 focus:outline-none focus:border-white/70 focus:bg-white/30 transition-colors pr-12"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                  {showPassword ? '🙈' : '👁️'}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors">
+                  {showPassword ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                      <line x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  )}
                 </button>
               </div>
             </div>
@@ -154,7 +173,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-2">
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -163,31 +182,6 @@ export default function LoginPage() {
               ) : 'Masuk'}
             </button>
           </form>
-        </div>
-      </div>
-
-      {/* RIGHT - Banner */}
-      <div className="hidden lg:flex flex-1 bg-indigo-600 items-center justify-center p-12">
-        <div className="text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">
-            Selamat Datang Kembali!
-          </h2>
-          <p className="text-indigo-200 text-sm leading-relaxed mb-8">
-            Lanjutkan perjalanan kariermu bersama Besok Kerja.
-            Platform AI terlengkap untuk persiapan kerja impianmu.
-          </p>
-          <div className="grid grid-cols-3 gap-6">
-            {[
-              { number: '10K+', label: 'Pengguna Aktif' },
-              { number: '85%', label: 'Tingkat Keberhasilan' },
-              { number: '500+', label: 'Perusahaan Partner' },
-            ].map((stat, i) => (
-              <div key={i} className="bg-white/10 rounded-2xl p-4">
-                <p className="text-2xl font-bold text-white">{stat.number}</p>
-                <p className="text-xs text-indigo-200 mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </div>
