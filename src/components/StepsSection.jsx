@@ -16,9 +16,7 @@ export default function StepsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {steps.map((step, i) => (
             <div key={i} className="flex flex-col items-center text-center">
-              <div className="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-sm mb-3">
-                {step.number}
-              </div>
+              {/* Icon saja tanpa angka */}
               <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-3xl mb-4">
                 {step.icon}
               </div>

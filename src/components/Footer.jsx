@@ -22,7 +22,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-4">
-              Platform persiapan karier dengan AI seperti HR beneran.
+              Platform persiapan kesuksesanmu.
             </p>
             <div className="flex gap-3">
               {['📷', '💼', '▶️'].map((icon, i) => (
