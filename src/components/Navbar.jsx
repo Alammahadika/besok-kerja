@@ -29,7 +29,7 @@ export default function Navbar() {
             <Link href="/simulasi-interview" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Simulasi Interview</Link>
             <Link href="/rekomendasi-skill" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Pengembangan Skill</Link>
             <Link href="/harga" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Harga</Link>
-            <Link href="/#tentang" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</Link>
+            <Link href="/tentang-kami" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</Link>
           </div>
 
           {/* Auth Buttons Desktop */}
@@ -66,7 +66,7 @@ export default function Navbar() {
               <Link href="/simulasi-interview" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Simulasi Interview</Link>
               <Link href="/rekomendasi-skill" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Pengembangan Skill</Link>
               <Link href="/harga" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Harga</Link>
-              <Link href="/#tentang" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
+              <Link href="/tentang-kami" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
 
               {/* Auth Buttons Mobile */}
               <div className="flex gap-3 pt-2 border-t border-gray-100">
