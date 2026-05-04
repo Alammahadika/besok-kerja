@@ -1,8 +1,28 @@
+import Image from 'next/image'
+
 export default function TestimonialSection() {
   const testimonials = [
-    { name: 'Rizky Pratama', role: 'Staff HR', avatar: '👨', rating: 5, text: 'Feedbacknya detail banget, berasa di-review langsung sama HR. Aku jadi tahu apa yang harus diperbaiki.' },
-    { name: 'Dina Ayu', role: 'Fresh Graduate', avatar: '👩', rating: 5, text: 'Sebagai fresh graduate, aku jadi lebih percaya diri setelah latihan interview di sini.' },
-    { name: 'Samuel Wijaya', role: 'Marketing Executive', avatar: '👨‍💼', rating: 5, text: 'Fitur analisis alasan ditolak membuka mata saya. Ternyata ada hal kecil yang selama ini saya lewatkan.' },
+    {
+      name: 'Rizky Pratama',
+      role: 'Staff HR',
+      avatar: '/testimonial-1.jpg',
+      rating: 5,
+      text: 'Feedbacknya detail banget, berasa di-review langsung sama HR. Aku jadi tahu apa yang harus diperbaiki.',
+    },
+    {
+      name: 'Dina Ayu',
+      role: 'Fresh Graduate',
+      avatar: '/testimonial-2.jpg',
+      rating: 5,
+      text: 'Sebagai fresh graduate, aku jadi lebih percaya diri setelah latihan interview di sini.',
+    },
+    {
+      name: 'Samuel Wijaya',
+      role: 'Marketing Executive',
+      avatar: '/testimonial-3.jpg',
+      rating: 5,
+      text: 'Fitur analisis alasan ditolak membuka mata saya. Ternyata ada hal kecil yang selama ini saya lewatkan.',
+    },
   ]
 
   return (
@@ -15,8 +35,15 @@ export default function TestimonialSection() {
           {testimonials.map((t, i) => (
             <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-2xl">
-                  {t.avatar}
+                {/* Foto Profil */}
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-sm">{t.name}</p>
@@ -32,6 +59,8 @@ export default function TestimonialSection() {
             </div>
           ))}
         </div>
+
+        {/* Dots */}
         <div className="flex justify-center gap-2 mt-8">
           {[0, 1, 2].map((_, i) => (
             <div key={i} className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-indigo-600' : 'bg-gray-300'}`} />
