@@ -48,34 +48,33 @@ export default function LoginPage() {
     <div className="min-h-screen relative flex items-center justify-center">
 
       {/* Background Full Screen */}
-<div className="absolute inset-0 z-0">
-  <Image
-    src="/auth-bannerku.png"
-    alt="Background"
-    fill
-    className="object-cover object-center scale-100"
-    priority
-    style={{ objectFit: 'cover', objectPosition: 'center' }}
-  />
-  {/* Overlay agar teks terbaca */}
-  <div className="absolute inset-0 bg-black/30" />
-</div>
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url(/auth-bannerku.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-      {/* Form Card Transparan di Tengah */}
-      <div className="relative z-10 w-full max-w-md mx-4">
+      {/* Form Card */}
+      <div className="relative z-10 w-full max-w-md mx-4 py-8">
         <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-3xl p-8 shadow-2xl">
 
-          {/* Logo */}
+          {/* Logo tanpa background putih */}
           <div className="mb-6 flex justify-center">
-            <div className="bg-white/90 rounded-2xl px-4 py-2">
+            <Link href="/">
               <Image
                 src="/logo1.png"
                 alt="Besok Kerja"
-                width={130}
-                height={36}
+                width={160}
+                height={45}
                 className="object-contain"
               />
-            </div>
+            </Link>
           </div>
 
           {/* Heading */}
