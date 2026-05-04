@@ -10,13 +10,16 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <Image
-                src="/logo.png"
-                alt="Besok Kerja"
-                width={130}
-                height={35}
-                className="object-contain brightness-0 invert"
-              />
+              {/* Logo dengan background putih agar terlihat */}
+              <div className="bg-white rounded-xl p-3 inline-block">
+                <Image
+                  src="/logo.png"
+                  alt="Besok Kerja"
+                  width={120}
+                  height={32}
+                  className="object-contain"
+                />
+              </div>
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Platform persiapan karier dengan AI seperti HR beneran.
@@ -39,7 +42,8 @@ export default function Footer() {
               { label: 'Pengembangan Skill', href: '/rekomendasi-skill' },
               { label: 'Harga', href: '/#harga' },
             ].map((item, i) => (
-              <Link key={i} href={item.href} className="block text-sm hover:text-white mb-2 transition-colors">
+              <Link key={i} href={item.href}
+                className="block text-sm hover:text-white mb-2 transition-colors">
                 {item.label}
               </Link>
             ))}
@@ -54,7 +58,8 @@ export default function Footer() {
               { label: 'Kebijakan Privasi', href: '#' },
               { label: 'Syarat & Ketentuan', href: '#' },
             ].map((item, i) => (
-              <Link key={i} href={item.href} className="block text-sm hover:text-white mb-2 transition-colors">
+              <Link key={i} href={item.href}
+                className="block text-sm hover:text-white mb-2 transition-colors">
                 {item.label}
               </Link>
             ))}
@@ -68,23 +73,22 @@ export default function Footer() {
               { label: 'Karier', href: '#' },
               { label: 'Kontak Kami', href: '#' },
             ].map((item, i) => (
-              <Link key={i} href={item.href} className="block text-sm hover:text-white mb-2 transition-colors">
+              <Link key={i} href={item.href}
+                className="block text-sm hover:text-white mb-2 transition-colors">
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* Newsletter */}
+          {/* Akun & Newsletter */}
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm">Akun</h4>
             <div className="flex flex-col gap-2 mb-6">
-              <Link
-                href="/login"
+              <Link href="/login"
                 className="text-sm text-gray-400 hover:text-white transition-colors">
                 Masuk
               </Link>
-              <Link
-                href="/register"
+              <Link href="/register"
                 className="text-sm text-gray-400 hover:text-white transition-colors">
                 Daftar Gratis
               </Link>
@@ -97,13 +101,20 @@ export default function Footer() {
                 placeholder="Masukkan email kamu"
                 className="flex-1 bg-gray-800 text-white text-xs px-3 py-2.5 rounded-lg border border-gray-700 focus:outline-none focus:border-indigo-500"
               />
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2.5 rounded-lg transition-colors">→</button>
+              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2.5 rounded-lg transition-colors">
+                →
+              </button>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 text-center">
+        {/* Bottom */}
+        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs">© 2024 Besok Kerja. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="#" className="text-xs hover:text-white transition-colors">Kebijakan Privasi</Link>
+            <Link href="#" className="text-xs hover:text-white transition-colors">Syarat & Ketentuan</Link>
+          </div>
         </div>
       </div>
     </footer>
