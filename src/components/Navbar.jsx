@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link href="/#fitur" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Fitur</Link>
             <Link href="/simulasi-interview" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Simulasi Interview</Link>
             <Link href="/rekomendasi-skill" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Pengembangan Skill</Link>
-            <Link href="/#harga" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Harga</Link>
+            <Link href="/harga" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Harga</Link>
             <Link href="/#tentang" className="text-gray-600 hover:text-indigo-600 text-sm font-medium transition-colors">Tentang Kami</Link>
           </div>
 
@@ -65,7 +65,7 @@ export default function Navbar() {
               <Link href="/#fitur" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Fitur</Link>
               <Link href="/simulasi-interview" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Simulasi Interview</Link>
               <Link href="/rekomendasi-skill" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Pengembangan Skill</Link>
-              <Link href="/#harga" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Harga</Link>
+              <Link href="/harga" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Harga</Link>
               <Link href="/#tentang" onClick={() => setIsOpen(false)} className="text-gray-600 text-sm font-medium">Tentang Kami</Link>
 
               {/* Auth Buttons Mobile */}
