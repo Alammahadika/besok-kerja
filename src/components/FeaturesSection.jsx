@@ -1,75 +1,123 @@
-import Image from 'next/image'
+import {
+  FileText,
+  Mic,
+  BarChart3,
+  SearchCheck,
+  BrainCircuit,
+  Briefcase,
+  UserCheck,
+  LayoutDashboard,
+  ArrowRight
+} from 'lucide-react'
 
 export default function FeaturesSection() {
+
   const features = [
     {
-      icon: '/Icon_CV Review.png',
+      icon: FileText,
       title: 'CV Review',
-      desc: 'Buat CV dengan mudah dan dapatkan review serta tips perbaikan dari AI HR.',
+      desc: 'Evaluasi CV secara lebih profesional dengan insight dan rekomendasi yang relevan.',
     },
     {
-      icon: '/Icon_Interview.png',
+      icon: Mic,
       title: 'Simulasi Interview',
-      desc: 'Latihan interview kapan saja dengan AI yang berperan sebagai HR profesional.',
+      desc: 'Latihan interview realistis untuk membantu meningkatkan kesiapan dan rasa percaya diri.',
     },
     {
-      icon: '/Icon_Feedback Interview.png',
+      icon: BarChart3,
       title: 'Feedback Interview',
-      desc: 'Dapatkan penilaian lengkap tentang jawabanmu, termasuk skor dan saran perbaikan.',
+      desc: 'Dapatkan evaluasi jawaban, penilaian performa, dan saran pengembangan.',
     },
     {
-      icon: '/Icon_Analisis Penolakan.png',
+      icon: SearchCheck,
       title: 'Analisis Penolakan',
-      desc: 'AI akan menganalisis CV dan jawabanmu untuk menemukan kemungkinan alasan penolakan.',
+      desc: 'Identifikasi kemungkinan faktor yang memengaruhi hasil lamaran kerja.',
     },
     {
-      icon: '/Icon_Rekomendasi Skill.png',
+      icon: BrainCircuit,
       title: 'Rekomendasi Skill',
-      desc: 'Dapatkan rekomendasi skill yang perlu kamu kuasai beserta urutan prioritasnya.',
+      desc: 'Temukan skill yang perlu diprioritaskan sesuai target posisi dan industri.',
     },
     {
-      icon: '/Icon_Tips Karier Profesional.png',
-      title: 'Tips Karier Profesional',
-      desc: 'Tips dan strategi karier yang disesuaikan dengan profil dan tujuanmu.',
+      icon: Briefcase,
+      title: 'Tips Karier',
+      desc: 'Akses insight dan strategi pengembangan karier yang lebih terarah.',
     },
     {
-      icon: '/Icon_Review Kandidat.png',
+      icon: UserCheck,
       title: 'Review Kandidat',
-      desc: 'Dapatkan review mendalam tentang profilmu sebagai kandidat yang ideal.',
+      desc: 'Pahami kekuatan dan area pengembangan dari profil profesionalmu.',
     },
     {
-      icon: '/Icon_Progres Persiapanmu.png',
-      title: 'Progres Persiapanmu',
-      desc: 'Pantau semua progres persiapan kerjamu dalam satu dashboard yang mudah dipahami.',
+      icon: LayoutDashboard,
+      title: 'Progress Dashboard',
+      desc: 'Pantau perkembangan persiapan kerja dalam satu dashboard terintegrasi.',
     },
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-          Fitur Lengkap untuk Persiapan Kariermu
-        </h2>
-        <p className="text-center text-gray-500 mb-12">
-          Semua yang kamu butuhkan untuk sukses melamar kerja
-        </p>
+    <section className="py-24 bg-gray-50">
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+        {/* Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-20">
+
+          <p className="text-sm font-semibold tracking-wide uppercase text-indigo-600 mb-3">
+            Features
+          </p>
+
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 leading-tight mb-6">
+            Semua yang kamu butuhkan
+            <span className="text-indigo-600"> untuk berkembang </span>
+            dalam karier
+          </h2>
+
+          <p className="text-lg text-gray-500 leading-relaxed">
+            Platform yang membantu kamu mempersiapkan proses rekrutmen
+            dengan lebih modern, terarah, dan profesional.
+          </p>
+
+        </div>
+
+        {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, i) => (
-            <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              {/* Icon tanpa background */}
-              <div className="mb-4">
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={72}
-                  height={72}
-                  className="object-contain"
-                />
+
+          {features.map((feature, i) => {
+
+            const Icon = feature.icon
+
+            return (
+              <div
+                key={i}
+                className="group bg-white border border-gray-100 rounded-3xl p-7 hover:shadow-2xl hover:border-indigo-100 transition-all duration-300"
+              >
+
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                  <Icon size={26} />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  {feature.title}
+                </h3>
+
+                {/* Desc */}
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                  {feature.desc}
+                </p>
+
+                {/* Link */}
+                <div className="flex items-center gap-2 text-sm font-medium text-indigo-600 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  Pelajari lebih lanjut
+                  <ArrowRight size={16} />
+                </div>
+
               </div>
-              <h3 className="font-bold text-gray-900 mb-2 text-sm">{feature.title}</h3>
-              <p className="text-gray-500 text-xs leading-relaxed">{feature.desc}</p>
-            </div>
-          ))}
+            )
+          })}
+
         </div>
       </div>
     </section>
